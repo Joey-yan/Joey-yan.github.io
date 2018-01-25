@@ -1,0 +1,864 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="HTML，meta," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Joey Yan's Notes" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="前言今天复习 HTML 相关知识时，又遇到了这个 HTML 中可谓最“神秘”的元素标签了。我相信大多数的 HTML 初学者对 meta 的了解都不是很多，因为很多教材对这部分知识都是匆匆带过。今天让我们来一起揭开 meta 的真面目吧。">
+<meta name="keywords" content="HTML，meta">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于 meta，你应该知道的一些事">
+<meta property="og:url" content="http://yoursite.com/2016/08/16/关于-meta，你应该知道的一些事/index.html">
+<meta property="og:site_name" content="Joey Yan&#39;s Notes">
+<meta property="og:description" content="前言今天复习 HTML 相关知识时，又遇到了这个 HTML 中可谓最“神秘”的元素标签了。我相信大多数的 HTML 初学者对 meta 的了解都不是很多，因为很多教材对这部分知识都是匆匆带过。今天让我们来一起揭开 meta 的真面目吧。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://obc26ans4.bkt.clouddn.com/apple-meta-description.PNG">
+<meta property="og:image" content="http://obc26ans4.bkt.clouddn.com/apple-search.PNG">
+<meta property="og:updated_time" content="2016-08-25T11:47:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于 meta，你应该知道的一些事">
+<meta name="twitter:description" content="前言今天复习 HTML 相关知识时，又遇到了这个 HTML 中可谓最“神秘”的元素标签了。我相信大多数的 HTML 初学者对 meta 的了解都不是很多，因为很多教材对这部分知识都是匆匆带过。今天让我们来一起揭开 meta 的真面目吧。">
+<meta name="twitter:image" content="http://obc26ans4.bkt.clouddn.com/apple-meta-description.PNG">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/16/关于-meta，你应该知道的一些事/"/>
+
+  <title> 关于 meta，你应该知道的一些事 | Joey Yan's Notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Joey Yan's Notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">JUST DO IT.</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                关于 meta，你应该知道的一些事
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-16T16:06:21+08:00" content="2016-08-16">
+              2016-08-16
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/16/关于-meta，你应该知道的一些事/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/16/关于-meta，你应该知道的一些事/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天复习 HTML 相关知识时，又遇到了这个 HTML 中可谓最“神秘”的元素标签了。我相信大多数的 HTML 初学者对 meta 的了解都不是很多，因为很多教材对这部分知识都是匆匆带过。今天让我们来一起揭开 meta 的真面目吧。<br><a id="more"></a></p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>W3C 上对于 <a href="http://www.w3school.com.cn/tags/tag_meta.asp" title="HTML &lt;meta&gt;标签" target="_blank" rel="noopener">meta</a> 元素的定义如下：</p>
+<blockquote>
+<p>meta 元素可提供有关页面的元信息,比如针对搜索引擎和更新频度的描述和关键词。<br>meta 标签的属性定义了与文档相关联的名称/值对。</p>
+</blockquote>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><blockquote>
+<p>元数据总是以名称/值对的形式被成对传递的。</p>
+</blockquote>
+<h3 id="name-属性"><a href="#name-属性" class="headerlink" title="name 属性"></a>name 属性</h3><blockquote>
+<p>name 属性提供了名称/值对中的名称。</p>
+</blockquote>
+<p>通常情况下，你可以使用对自己和源文档的读者来说富有意义的名称。</p>
+<p>W3C 上列举的”keywords”过去是一个经常被用到的名称，它为文档定义了一组关键词。某些搜索引擎在遇到这些关键词时，会用这些关键词对文档进行分类。但是这个名称现在几乎没什么所用了,哪现在还有哪些名称可以使用呢？请参见<a href="https://support.google.com/webmasters/answer/79812?hl=zh-Hans" target="_blank" rel="noopener">Google 可以识别的元标记</a> ,当然我的这篇文章后面也会提到。</p>
+<pre><code>&lt;meta name=&quot;keywords&quot; content=&quot;HTML,ASP,PHP,SQL&quot;&gt;
+</code></pre><p>如果没有提供 name 属性，那么名称/值对中的名称会采用 http-equiv 属性的值。</p>
+<h3 id="http-equiv-属性"><a href="#http-equiv-属性" class="headerlink" title="http-equiv 属性"></a>http-equiv 属性</h3><blockquote>
+<p>http-equiv 属性为名称/值对提供了名称。并指示服务器在发送实际的文档之前先在要传送给浏览器的 MIME 文档头部包含名称/值对。</p>
+</blockquote>
+<p>当服务器向浏览器发送文档时，会先发送许多名称/值对。虽然有些服务器会发送许多这种名称/值对，但是所有服务器都至少要发送一个：content-type:text/html。这将告诉浏览器准备接受一个 HTML 文档。</p>
+<p>使用带有 http-equiv 属性的 <meta> 标签时，服务器将把名称/值对添加到发送给浏览器的内容头部。例如，添加：</p>
+<pre><code>&lt;meta http-equiv=&quot;charset&quot; content=&quot;iso-8859-1&quot;&gt;
+&lt;meta http-equiv=&quot;expires&quot; content=&quot;31 Dec 2008&quot;&gt;
+</code></pre><p>这样发送到浏览器的头部就应该包含：</p>
+<pre><code>content-type: text/html
+charset:iso-8859-1
+expires:31 Dec 2008
+</code></pre><h3 id="content-属性"><a href="#content-属性" class="headerlink" title="content 属性"></a>content 属性</h3><blockquote>
+<p>content 属性提供了名称/值对中的值。该值可以是任何有效的字符串。<br>content 属性始终要和 name 属性或 http-equiv 属性一起使用。</p>
+</blockquote>
+<h2 id="meta-标签的重要性"><a href="#meta-标签的重要性" class="headerlink" title="meta 标签的重要性"></a>meta 标签的重要性</h2><p>过去，搜索引擎是靠meta标签来索引网页页面的。某些网站为了获得一个靠前的排名，在页面中塞满了关键词（相关的，不相关的）。所以 Google 在2009年就宣布在搜索算法中不再使用元关键词或者描述来得出排名了。</p>
+<p>虽说 meta 标签对搜索引擎的排名没有影响了，但它们还是会出现在搜索结果中。我们添加 meta 的目的是方面用户阅读而不是方便网络机器人去查找。也就是说，虽然一个好的meta描述不会增加网站排名，但在搜索结果中却会增加点击率。</p>
+<p>下面是 <a href="https://www.apple.com/" target="_blank" rel="noopener">Apple官网</a> 的 meta 描述：<br><img src="http://obc26ans4.bkt.clouddn.com/apple-meta-description.PNG" alt="Apple 官网 meta-description"></p>
+<p>在 Google 中搜索会发现 meta 描述会出现搜索结果中，如图所示：<br><img src="http://obc26ans4.bkt.clouddn.com/apple-search.PNG" alt="Google 搜索“苹果”结果"></p>
+<blockquote>
+<p>不是所有的流量都只是来自 Google、Bing 和 Yahoo。据说百度会赋予 meta 标签权重，不过我没有验证过。</p>
+</blockquote>
+<h2 id="可以使用的元标记"><a href="#可以使用的元标记" class="headerlink" title="可以使用的元标记"></a>可以使用的元标记</h2><blockquote>
+<p>Google 可以识别以下元标记：</p>
+</blockquote>
+<h3 id="meta-description"><a href="#meta-description" class="headerlink" title="meta description"></a>meta description</h3><pre><code>&lt;meta name=&quot;description&quot; content=&quot;A description of the page&quot; /&gt;
+</code></pre><p>此标记会提供网页的简短说明。在某些情况下，此说明会被用作搜索结果中显示的一部分网页摘要。</p>
+<h3 id="title"><a href="#title" class="headerlink" title="title"></a>title</h3><pre><code>&lt;title&gt;网页标题&lt;/title&gt;
+</code></pre><p>虽然从技术上讲，这不是一个元标记，但是此标记经常与“description”一起使用。此标记的内容通常在搜索结果中（当然在用户的浏览器中）显示为标题。</p>
+<h3 id="meta-robots"><a href="#meta-robots" class="headerlink" title="meta robots"></a>meta robots</h3><pre><code>&lt;meta name=&quot;robots&quot; content=&quot;..., ...&quot; /&gt;
+&lt;meta name=&quot;googlebot&quot; content=&quot;..., ...&quot; /&gt;
+</code></pre><p>这些元标记可以控制搜索引擎的抓取和索引编制行为。robots 元标记适用于所有搜索引擎，而“googlebot”元标记专用于 Google。默认值是“index, follow”（相当于“all”），不需要进行指定。我们可以识别以下值（指定多个值时，请使用英文逗号进行分隔）：</p>
+<ul>
+<li>noindex:防止网页被编入索引</li>
+<li>nofollow：防止 Googlebot 跟踪此页面中的链接</li>
+<li>nosnippet：防止代码段显示在搜索结果中</li>
+<li>noodp：防止使用 ODP/DMOZ 中的替代说明</li>
+<li>noarchive：防止 Google 显示网页的缓存链接</li>
+<li>unavailable_after:[date]：可让您指定要停止抓取此网页及将其编入索引的确切时间和日期</li>
+<li>noimageindex：可让您指定您不希望自己的网页显示为 Google 搜索结果中所显示图片的引荐来源网页</li>
+<li>none：相当于 noindex, nofollow。</li>
+</ul>
+<p>现在，您还可以使用“X-Robots-Tag”HTTP 标头指令在网页的标头中指定此信息。如果您要限制将非 HTML 文件（如图形或其他类型的文档）编入索引，这种方法尤其实用。</p>
+<h3 id="meta-google"><a href="#meta-google" class="headerlink" title="meta google"></a>meta google</h3><pre><code>&lt;meta name=&quot;google&quot; content=&quot;nositelinkssearchbox&quot; /&gt;
+</code></pre><p>当用户搜索您的网站时，Google 搜索结果有时会显示一个您网站专用的搜索框，以及其他直接指向您网站的链接。此元标记用于告知 Google 不要显示站点链接搜索框。</p>
+<pre><code>&lt;meta name=&quot;google&quot; content=&quot;notranslate&quot; /&gt;
+</code></pre><p>如果我们发现网页内容所用的语言不是用户想要阅读的语言，则通常会在搜索结果中提供翻译链接。这样通常会让您有机会将独特而富有吸引力的内容提供给更多用户。不过，也可能会出现一些您并不期望发生的情况。此元标记会告诉 Google 您不需要我们提供此页的翻译。</p>
+<pre><code>&lt;meta name=&quot;google-site-verification&quot; content=&quot;...&quot; /&gt;
+</code></pre><p>您可以在网站的顶级页面上使用此标记，以向 Search Console 验证您对该网站的所有权。请注意，虽然“name”和“content”属性的值必须与提供给您的值完全匹配（包括大小写），但是否将标记从 XHTML 更改为 HTML，或者标记的格式是否与网页的格式相符，这些都无关紧要。</p>
+<pre><code>&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;...; charset=...&quot; /&gt;
+&lt;meta charset=&quot;...&quot; &gt;
+</code></pre><p>此元标记会定义网页的内容类型和字符集。请确保您已在内容属性值的两端添加了引号，否则系统可能会错误地解译字符集属性。我们建议尽可能使用 Unicode/UTF-8。</p>
+<pre><code>&lt;meta http-equiv=&quot;refresh&quot; content=&quot;...;url=...&quot; /&gt;
+</code></pre><p>此元标记会在一段时间后将用户转到新网址，有时也会被用作一种简单的重定向形式。不过，并非所有浏览器都支持使用此元标记，因而可能会令用户感到困惑。W3C 建议不要使用此标记。我们建议改用服务器端 301 重定向。</p>
+<h2 id="其他一些-meta-设置"><a href="#其他一些-meta-设置" class="headerlink" title="其他一些 meta 设置"></a>其他一些 meta 设置</h2><p>更多设置请参考 <a href="http://joshbuchea.com/" target="_blank" rel="noopener">@josh Buchea</a> 整理的 <a href="https://github.com/joshbuchea/HEAD" target="_blank" rel="noopener">HTML 中<head>里的标签元素</head></a> .</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTML，meta/" rel="tag">#HTML，meta</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/15/Sublime-Text3-使用说明书/" rel="next" title="Sublime Text3 使用说明书">
+                <i class="fa fa-chevron-left"></i> Sublime Text3 使用说明书
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/25/浮动与闭合浮动/" rel="prev" title="浮动与闭合浮动">
+                浮动与闭合浮动 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/16/关于-meta，你应该知道的一些事/"
+           data-title="关于 meta，你应该知道的一些事" data-url="http://yoursite.com/2016/08/16/关于-meta，你应该知道的一些事/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Joey Yan" />
+          <p class="site-author-name" itemprop="name">Joey Yan</p>
+          <p class="site-description motion-element" itemprop="description">不忘初心 方得始终</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Joey-yan" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/Jayan" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-graduation-cap"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/yj2586888027" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用法"><span class="nav-number">3.</span> <span class="nav-text">用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#name-属性"><span class="nav-number">3.1.</span> <span class="nav-text">name 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http-equiv-属性"><span class="nav-number">3.2.</span> <span class="nav-text">http-equiv 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#content-属性"><span class="nav-number">3.3.</span> <span class="nav-text">content 属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#meta-标签的重要性"><span class="nav-number">4.</span> <span class="nav-text">meta 标签的重要性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可以使用的元标记"><span class="nav-number">5.</span> <span class="nav-text">可以使用的元标记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#meta-description"><span class="nav-number">5.1.</span> <span class="nav-text">meta description</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#title"><span class="nav-number">5.2.</span> <span class="nav-text">title</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#meta-robots"><span class="nav-number">5.3.</span> <span class="nav-text">meta robots</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#meta-google"><span class="nav-number">5.4.</span> <span class="nav-text">meta google</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他一些-meta-设置"><span class="nav-number">6.</span> <span class="nav-text">其他一些 meta 设置</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" style="display: inline-block">
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Joey Yan</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"Joey-yan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

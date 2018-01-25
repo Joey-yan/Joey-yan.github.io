@@ -1,0 +1,955 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="DevTools," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Joey Yan's Notes" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="引言谷歌 Chrome 开发工具，是基于谷歌浏览器内含的一套网页制作和调试工具。开发者工具允许网页开发者深入浏览器和网页应用程序的内部。该工具可以有效地追踪布局问题，设置 JavaScript 断点并可深入理解代码的最优化策略。">
+<meta name="keywords" content="DevTools">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chrome DevTools使用教程">
+<meta property="og:url" content="http://yoursite.com/2016/08/03/Chrome-DevTools使用教程/index.html">
+<meta property="og:site_name" content="Joey Yan&#39;s Notes">
+<meta property="og:description" content="引言谷歌 Chrome 开发工具，是基于谷歌浏览器内含的一套网页制作和调试工具。开发者工具允许网页开发者深入浏览器和网页应用程序的内部。该工具可以有效地追踪布局问题，设置 JavaScript 断点并可深入理解代码的最优化策略。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://obc26ans4.bkt.clouddn.com/image/png/network01.PNG">
+<meta property="og:updated_time" content="2016-08-06T08:41:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chrome DevTools使用教程">
+<meta name="twitter:description" content="引言谷歌 Chrome 开发工具，是基于谷歌浏览器内含的一套网页制作和调试工具。开发者工具允许网页开发者深入浏览器和网页应用程序的内部。该工具可以有效地追踪布局问题，设置 JavaScript 断点并可深入理解代码的最优化策略。">
+<meta name="twitter:image" content="http://obc26ans4.bkt.clouddn.com/image/png/network01.PNG">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/03/Chrome-DevTools使用教程/"/>
+
+  <title> Chrome DevTools使用教程 | Joey Yan's Notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Joey Yan's Notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">JUST DO IT.</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Chrome DevTools使用教程
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-03T21:50:57+08:00" content="2016-08-03">
+              2016-08-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/03/Chrome-DevTools使用教程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/03/Chrome-DevTools使用教程/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>谷歌 Chrome 开发工具，是基于谷歌浏览器内含的一套网页制作和调试工具。开发者工具允许网页开发者深入浏览器和网页应用程序的内部。该工具可以有效地追踪布局问题，设置 JavaScript 断点并可深入理解代码的最优化策略。</p>
+<a id="more"></a>
+<h3 id="打开开发工具"><a href="#打开开发工具" class="headerlink" title="打开开发工具"></a>打开开发工具</h3><ul>
+<li>快捷键：Ctrl + Shift + i, 打开开发工具</li>
+<li>快捷键：Ctrl + Shift + j, 打开开发者工具同时聚焦于控制台</li>
+<li>快捷键：Ctrl + Shift + c, 开启审阅模式</li>
+<li>右键页面任何位置并选择审查元素</li>
+<li>通过开发者工具工具选项</li>
+</ul>
+<p><a href="https://developers.google.com/web/tools/chrome-devtools/iterate/inspect-styles/shortcuts?utm_source=dcc&amp;utm_medium=redirect&amp;utm_campaign=2016q3" title="快捷键" target="_blank" rel="noopener">学习使用快捷键</a>可以为你每天的工作流节省时间。</p>
+<h3 id="开发者工具窗口"><a href="#开发者工具窗口" class="headerlink" title="开发者工具窗口"></a>开发者工具窗口</h3><p>DevTools 目前主要包括以下 9 个主要功能组：</p>
+<ol>
+<li>Elements[元素]</li>
+<li>Console[控制台]</li>
+<li>Sources[资源]</li>
+<li>Network[网络]</li>
+<li>Timeline[时间轴]</li>
+<li>Profiles[配置]</li>
+<li>Application[应用]</li>
+<li>Security[安全]</li>
+<li>Audits[审核]</li>
+</ol>
+<p>你可以使用 Ctrl + [ 和 Ctrl + ] 快捷键在面板之间移动。</p>
+<h2 id="Elements-面板"><a href="#Elements-面板" class="headerlink" title="Elements 面板"></a>Elements 面板</h2><blockquote>
+<p>在 Elements 面板中你可以通过 DOM 树的形式查看所有页面元素，并且可以对其进行所见所得的编辑。</p>
+</blockquote>
+<h3 id="面板结构"><a href="#面板结构" class="headerlink" title="面板结构"></a>面板结构</h3><p>在 HTML 中主要<code>分为 2 大部分</code>：</p>
+<ul>
+<li>A：HTML 结构面板</li>
+<li>B：其他相关面板</li>
+</ul>
+<h3 id="面板功能"><a href="#面板功能" class="headerlink" title="面板功能"></a>面板功能</h3><ol>
+<li>在 A 中，每当你的鼠标移动到任何一个元素上，对应 HTML 视图中会给该元素蓝色背景显示。<blockquote>
+<p>或者你可以点击左上角的问号图标（快捷键：Ctrl + Shift + C），然后把用鼠标点击视图中的元素，对应的 A 界面会定位到选择的元素。这种操作方式会直达结构的最底层，然后我们可以配合使用<code>键盘方向键</code>选择想要选中的某个元素。</p>
+</blockquote>
+</li>
+<li>如果你单机选中某个元素，在 A 部分底部的<code>面包屑导航</code>中，会显示该元素在 html 结构中的位置关系。<blockquote>
+<p>也就是说，当某个元素处于选中状态时，以下 3 个部分被标记为蓝色：<br>视图中的元素、A 区中的元素、面包屑导航</p>
+</blockquote>
+</li>
+<li>然后你可以在 B 部分的 <code>Styles</code> 标签页中编辑该元素的样式，html 视图中会实时更新。</li>
+<li>你可以在 B 界面中切换到 <code>Event Listeners</code> 标签页，观察该元素绑定的事件。</li>
+<li>选中一个元素，右击鼠标，在弹出的窗口中有若干选项：<blockquote>
+<p>Add attribute[添加属性]<br>Edit attribute[编辑属性]<br>Edit as HTML[作为 HTML 编辑]<br>Sroll into view[滚进视野]<br><strong>Break on</strong>:<br>  Subtree modifications[子树修改]<br>  Attribute modifications[属性修改]<br>  Node removal[节点删除]</p>
+</blockquote>
+</li>
+<li>在 A 界面的弹出窗口中选择 node removal ,在 B 界面切换到 <code>DOM Breakpoints</code> 选项，可以看到注册信息。然后我们点击 click me 按钮触发 </li>
+<li>在 B 界面中切换到 <code>Properties</code> 选项，可以看到选中元素的各种信息。</li>
+<li>点击 A 界面的任意地方，快捷键 Ctrl + F 可以看到底部有输入框，输入想查找的任何内容，如果匹配到了，都会在 A 面板中高亮显示</li>
+</ol>
+<p>左侧就是对页面 HTML 结构的查看与编辑，你可以直接在某个元素上双击修改元素的属性；<br>或者你点击右键选 “Edit as Html” 直接对元素的 HTML 进行编辑；<br>或者删除某个元素，所有的修改都会即时在页面上得到呈现；<br>你还可以对某个元素进行监听，在 JS 对元素的属性或者 HTML 进行修改的时候，直接触发断点，跳转到对改元素进行修改的 JS 代码处。<br><code>Styles</code> 标签页可以对元素的 CSS 进行查看与编辑修改，你还可以在这里看到各 CSS 值得覆盖情况。<br><code>Computed</code> 标签页可以看到元素占的空间状况（宽、高、 Padding、 Margin 等）。<br><code>Properties</code> 标签页可以让你看到元素具有的方法与属性，比查看 API 手册要方便的多哦。</p>
+<h2 id="Network-面板"><a href="#Network-面板" class="headerlink" title="Network 面板"></a>Network 面板</h2><p>有时候我们的网页加载的很慢，而相同网速下，其他网页加载速度并不慢。这时候就得考虑优化网页，优化前我们必须知道加载速度的瓶颈在哪里，这个时候可以考虑使用 Network 工具。下图为 apple 官网首页加载时的 Network 情况：</p>
+<p><img src="http://obc26ans4.bkt.clouddn.com/image/png/network01.PNG" alt="Network 面板" title="apple 官网 Network"></p>
+<h3 id="主要区域"><a href="#主要区域" class="headerlink" title="主要区域"></a>主要区域</h3><p>请求的每个资源在 Network 表格中显示为一行，每个资源都有许多列的内容。（ps: 默认情况下不是所有列都显示出来）。</p>
+<ul>
+<li>Name/Path[名称和方法]: 资源名称以及 URL 路径；</li>
+<li>Method[方法]: HTTP 请求方法；</li>
+<li>Status/Text[状态和文本]: HTTP 状态码/文字解释；</li>
+<li>Type[类型]: 请求资源的 MIME 类型；</li>
+<li>Initiator[启动器]: 解释请求是怎么发起的，有四种可能的值：<ul>
+<li><ol>
+<li>Parser[分析器]: 请求是由页面的 HTML 解析时发送的；</li>
+<li>Redirect[重定向]: 请求是由页面重定向发送的；</li>
+<li>Script[脚本]: 请求是由 Script 脚本处理发送的；</li>
+<li>Other[其他]: 请求是由其他过程发送的，比如页面里的 link 链接点击，在地址栏输入 URL 地址。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>Size/Content: Size 是响应头部和响应体合起来的大小，Content 是请求内容解码后的大小。进一步了解可以看这里<a href="http://stackoverflow.com/questions/8072921/chrome-dev-tools-size-vs-content" target="_blank" rel="noopener">Chrome Dev Tools - “Size” vs “Content”</a></li>
+<li>Time/Latency: Time 是从请求开始到接收到最后一个字节的总时长，Latency 是从请求开始到接受到第一个字节的时间。</li>
+<li>Timeline: 显示网络亲求的可视化瀑布流，鼠标悬停在末一个时间线上，可以显示整个请求各部分花费的时间。<ul>
+<li><ol>
+<li>Start Time: 由每个网络请求的开始时间排序；</li>
+<li>Response Time: 由每个网络请求的响应时间排序；</li>
+<li>End Time: 由每个网络请求完成时间排序；</li>
+<li>Durstion: 由每个网络请求的总时间排序；</li>
+<li>Latency: 由请求的开始和响应开始之间的时间排序；</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<p>以上是默认显示的列，不过我们可以选择显示或者隐藏更多的列。</p>
+<h3 id="菜单栏"><a href="#菜单栏" class="headerlink" title="菜单栏"></a>菜单栏</h3><p>相关名词解释如下：</p>
+<ul>
+<li>Record Network Log: 红色表示此时正在记录资源请求信息；</li>
+<li>Clear: 清空所有的资源请求信息；</li>
+<li>Capture Screenshots:  捕捉截屏；</li>
+<li>Filter: 过滤资源请求信息；</li>
+<li>Use small request rows/Use large request rows:</li>
+<li>Show overvier/Hide overvier: 显示/隐藏 概况</li>
+<li>Perserve Log: 再次记录请求的信息时不擦出之前的资源信息；</li>
+<li>Disable cache: 不允许缓存的话，所有资源均重新加载；</li>
+</ul>
+<h4 id="Filter-过滤器"><a href="#Filter-过滤器" class="headerlink" title="Filter 过滤器"></a>Filter 过滤器</h4><p>选择 Filter 后，就会出现一系列的过滤条件，当我们点击某一内容类型（可以是 Documents, Stylesheets, Images, Scripts, XHR, Fonts, WebSockets, Other）后，只显示该特定类型的资源。</p>
+<p>可用过滤器类型：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">类型</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">domain:</td>
+<td>e.g.domain:www.apple.com</td>
+</tr>
+<tr>
+<td style="text-align:left">has-response-header</td>
+<td>e.g.has-response-header:Accept-Ranges</td>
+</tr>
+<tr>
+<td style="text-align:left">is：</td>
+<td>e.g.is:running</td>
+</tr>
+<tr>
+<td style="text-align:left">降幅高于</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">method:</td>
+<td>e.g.method:Get</td>
+</tr>
+<tr>
+<td style="text-align:left">mime-type:</td>
+<td>e.g.mime-type:image/jpeg</td>
+</tr>
+<tr>
+<td style="text-align:left">方案</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">设置 Cookie 的名称</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">设置 Cookie 的值</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">设置 Cookie 域</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">states-code:</td>
+<td>e.g.status-code:200</td>
+</tr>
+</tbody>
+</table>
+<p>在 XHR 请求中，可以在一个请求上右键选择“Replay XHR”来重新运行一个 XHR 请求。</p>
+<p>资源的详细内容有以下几个：</p>
+<ul>
+<li>HTTP request and response headers</li>
+<li>Resource preview: 可行时进行资源预览；</li>
+<li>HTTP response: 未处理过的资源内容；</li>
+<li>Cookie names and values: HTTP 请求以及返回中传输的所有Cookies；</li>
+<li>WebSocker message: 通过 WebSocker 发送和接收到的信心；</li>
+<li>Resource network timing: 图形化显示资源加载过程中各阶段花费的时间；</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/DevTools/" rel="tag">#DevTools</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/31/利用github-pages建立个人博客/" rel="next" title="利用github-pages建立个人博客">
+                <i class="fa fa-chevron-left"></i> 利用github-pages建立个人博客
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/09/译-JavaScript-表达式和语句的区别/" rel="prev" title="[译] JavaScript 表达式和语句的区别">
+                [译] JavaScript 表达式和语句的区别 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/03/Chrome-DevTools使用教程/"
+           data-title="Chrome DevTools使用教程" data-url="http://yoursite.com/2016/08/03/Chrome-DevTools使用教程/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Joey Yan" />
+          <p class="site-author-name" itemprop="name">Joey Yan</p>
+          <p class="site-description motion-element" itemprop="description">不忘初心 方得始终</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Joey-yan" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/Jayan" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-graduation-cap"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/yj2586888027" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#打开开发工具"><span class="nav-number">1.1.</span> <span class="nav-text">打开开发工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发者工具窗口"><span class="nav-number">1.2.</span> <span class="nav-text">开发者工具窗口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Elements-面板"><span class="nav-number">2.</span> <span class="nav-text">Elements 面板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#面板结构"><span class="nav-number">2.1.</span> <span class="nav-text">面板结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面板功能"><span class="nav-number">2.2.</span> <span class="nav-text">面板功能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Network-面板"><span class="nav-number">3.</span> <span class="nav-text">Network 面板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主要区域"><span class="nav-number">3.1.</span> <span class="nav-text">主要区域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#菜单栏"><span class="nav-number">3.2.</span> <span class="nav-text">菜单栏</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Filter-过滤器"><span class="nav-number">3.2.1.</span> <span class="nav-text">Filter 过滤器</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" style="display: inline-block">
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Joey Yan</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"Joey-yan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

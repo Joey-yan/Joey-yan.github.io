@@ -1,0 +1,837 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="SublimeText3," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Joey Yan's Notes" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="这篇文章主要记录使用 Sublime Text3 过程中点滴，我会不定时的更新。如果能对其他朋友有所帮助，也是极好的。">
+<meta name="keywords" content="SublimeText3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sublime Text3 使用说明书">
+<meta property="og:url" content="http://yoursite.com/2016/08/15/Sublime-Text3-使用说明书/index.html">
+<meta property="og:site_name" content="Joey Yan&#39;s Notes">
+<meta property="og:description" content="这篇文章主要记录使用 Sublime Text3 过程中点滴，我会不定时的更新。如果能对其他朋友有所帮助，也是极好的。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://obc26ans4.bkt.clouddn.com/image/jpg/sublime.jpg">
+<meta property="og:updated_time" content="2016-09-29T07:10:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sublime Text3 使用说明书">
+<meta name="twitter:description" content="这篇文章主要记录使用 Sublime Text3 过程中点滴，我会不定时的更新。如果能对其他朋友有所帮助，也是极好的。">
+<meta name="twitter:image" content="http://obc26ans4.bkt.clouddn.com/image/jpg/sublime.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/15/Sublime-Text3-使用说明书/"/>
+
+  <title> Sublime Text3 使用说明书 | Joey Yan's Notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Joey Yan's Notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">JUST DO IT.</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Sublime Text3 使用说明书
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-15T08:27:41+08:00" content="2016-08-15">
+              2016-08-15
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/15/Sublime-Text3-使用说明书/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/15/Sublime-Text3-使用说明书/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://obc26ans4.bkt.clouddn.com/image/jpg/sublime.jpg" alt=""></p>
+<blockquote>
+<p>这篇文章主要记录使用 Sublime Text3 过程中点滴，我会不定时的更新。<br>如果能对其他朋友有所帮助，也是极好的。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>当初选择编辑器主要是参考<a href="http://love.appinn.com/" title="由小众软件读者评选得出优秀的软件，分门别类，总有你喜欢的软件" target="_blank" rel="noopener">我最喜欢的软件</a>这个网站，因为 Notepad++ 排在第一位，也就很自然的选择了 Notepad++（ps:除了颜值低了点，其他都很不错）。也正是这次机缘，让我邂逅了 Sublime Text 这款文本编辑器。</p>
+<p>Sublime Text <a href="https://www.sublimetext.com/" target="_blank" rel="noopener">官网</a>上还是以 Sublime Text2 为例。我个人认为 Sublime Text3 的界面更很好看一些，如果你是 Win10 系统。所以，没下手的赶紧安装吧。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><blockquote>
+<p>Sublime Text is available for OS X, Windows and Linux. </p>
+</blockquote>
+<p>Sublime Text3 是一个跨平台的文本编辑器，支持 OS X， Windows 和 Linux。进入 <a href="https://www.sublimetext.com/" target="_blank" rel="noopener">官网</a> 选择对应的平台，安装即可。我自己使用的是 Windows 系统，下面所述都是基于 Windows 的，其他平台不作保证。</p>
+<p>没错，本篇博文就是在 Sublime Text3 上写的。前几篇博文都是用 <a href="https://www.typora.io/" title="Typora — a minimal markdown editor for Mac and Windows" target="_blank" rel="noopener">Typora</a> 编写的，这是一款实时预览的 Markdown 编辑器。</p>
+<h2 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h2><p>Sublime Text3 的强大在于它拥有强大的扩张性。可以根据自己的需要安装不同的插件，建议仅需要时才安装。</p>
+<h3 id="使用-Package-Control-组件安装"><a href="#使用-Package-Control-组件安装" class="headerlink" title="使用 Package Control 组件安装"></a>使用 Package Control 组件安装</h3><p>首先打开 <code>控制台</code> （View-&gt;Show Console（keyshort: Ctrl + `）），然后粘贴以下代码到底部命令行并回车：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request,os; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), &apos;wb&apos;).write(urllib.request.urlopen( &apos;http://sublime.wbond.net/&apos; + pf.replace(&apos; &apos;,&apos;%20&apos;)).read())</span><br></pre></td></tr></table></figure>
+<p>重启后，如果在 Perferences 中看到 Package Control 这一项，则安装成功。</p>
+<p>调出 <code>Package Control</code> （Perferences-&gt;package Control（keyshort: Ctrl + short + p）），选择 Install Package 并回车，等待半秒，选择或输入要安装的插件就好了。</p>
+<h3 id="直接安装"><a href="#直接安装" class="headerlink" title="直接安装"></a>直接安装</h3><blockquote>
+<p>安装 Sublime Text3 插件很方便，可以直接下载安装包解压到 <code>Packages</code> （Preferences-&gt;Browse Packages） 目录。</p>
+</blockquote>
+<h2 id="插件推荐"><a href="#插件推荐" class="headerlink" title="插件推荐"></a>插件推荐</h2><h3 id="Emmet"><a href="#Emmet" class="headerlink" title="Emmet"></a>Emmet</h3><blockquote>
+<p>Emmet 是一个前端开发的利器，前身是大名鼎鼎的 Zen Coding。它让编写 HTML 代码变得简单。</p>
+</blockquote>
+<p>Emmet 的基本用法是：输入简写形式，然后按 Tab 键。</p>
+<p>关于 Emmet 的更多用法，请看<a href="http://docs.emmet.io/" title="Emmet Documentation" target="_blank" rel="noopener">官方文档</a>，这份<a href="http://docs.emmet.io/cheat-sheet/" title="Cheat Sheet" target="_blank" rel="noopener">速查表</a> 可以帮你快速记忆简写形式。</p>
+<h3 id="sublime-monokai-extended"><a href="#sublime-monokai-extended" class="headerlink" title="sublime-monokai-extended"></a>sublime-monokai-extended</h3><blockquote>
+<p>详细介绍 <a href="https://github.com/jonschlinkert/sublime-monokai-extended" target="_blank" rel="noopener">monokai-extended</a></p>
+</blockquote>
+<h3 id="HTML-CSS-JS-Prettify"><a href="#HTML-CSS-JS-Prettify" class="headerlink" title="HTML-CSS-JS Prettify"></a>HTML-CSS-JS Prettify</h3><blockquote>
+<p>这款插件可以格式化 HTML CSS 还有 JS，不作过多解释了。详细介绍参见 <a href="https://github.com/victorporof/Sublime-HTMLPrettify" title="HTML-CSS-JS Prettify" target="_blank" rel="noopener">Github</a>。<br>（8-17-2016)</p>
+</blockquote>
+<h2 id="个性化设置"><a href="#个性化设置" class="headerlink" title="个性化设置"></a>个性化设置</h2><h3 id="更换字体"><a href="#更换字体" class="headerlink" title="更换字体"></a>更换字体</h3><p>不管你是否喜欢默认的字体，Sublime Text3 都是可以更换字体的，方式很特别，你得通过配置文件进行设置。<br>点击进入 <code>Settings-User</code> （Preferences-&gt;Settings-User） ，添加 font_face 属性：</p>
+<blockquote>
+<p>{<br>    “font_face”: ‘YaHei Consolas Hybrid’,<br>    “font_size”: 10<br>  }</p>
+</blockquote>
+<p>关于 <code>YaHei Consolas Hybrid</code> 的介绍，应用《程序编写字体 — Yahei Consolas Hybrid》中的一段话：</p>
+<blockquote>
+<p>Yahei Consolas Hybrid 是一种合成字体，是由微软雅黑的中文字体和 Consolas 的英文字体合成的，Consolas<br>字体是微软专为程序员开发的一种字体，但没有中文支持，所以 Yahei Consolas Hybrid 这种字体特别适合中英文的编程开发，代码编写。</p>
+</blockquote>
+<p>不知道选用什么字体？</p>
+<blockquote>
+<p>推荐知乎上的 <a href="https://www.zhihu.com/question/31980899" title="哪些字体在 Sublime 上特别好看？" target="_blank" rel="noopener">哪些字体在 Sublime 上特别好看？</a> </p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SublimeText3/" rel="tag">#SublimeText3</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/13/JavaScript-正则表达式/" rel="next" title="JavaScript 正则表达式">
+                <i class="fa fa-chevron-left"></i> JavaScript 正则表达式
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/16/关于-meta，你应该知道的一些事/" rel="prev" title="关于 meta，你应该知道的一些事">
+                关于 meta，你应该知道的一些事 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/15/Sublime-Text3-使用说明书/"
+           data-title="Sublime Text3 使用说明书" data-url="http://yoursite.com/2016/08/15/Sublime-Text3-使用说明书/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Joey Yan" />
+          <p class="site-author-name" itemprop="name">Joey Yan</p>
+          <p class="site-description motion-element" itemprop="description">不忘初心 方得始终</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Joey-yan" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/Jayan" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-graduation-cap"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/yj2586888027" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件安装"><span class="nav-number">3.</span> <span class="nav-text">插件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-Package-Control-组件安装"><span class="nav-number">3.1.</span> <span class="nav-text">使用 Package Control 组件安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直接安装"><span class="nav-number">3.2.</span> <span class="nav-text">直接安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件推荐"><span class="nav-number">4.</span> <span class="nav-text">插件推荐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Emmet"><span class="nav-number">4.1.</span> <span class="nav-text">Emmet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sublime-monokai-extended"><span class="nav-number">4.2.</span> <span class="nav-text">sublime-monokai-extended</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-CSS-JS-Prettify"><span class="nav-number">4.3.</span> <span class="nav-text">HTML-CSS-JS Prettify</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个性化设置"><span class="nav-number">5.</span> <span class="nav-text">个性化设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#更换字体"><span class="nav-number">5.1.</span> <span class="nav-text">更换字体</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" style="display: inline-block">
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Joey Yan</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"Joey-yan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

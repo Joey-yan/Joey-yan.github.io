@@ -1,0 +1,902 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JS," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Joey Yan's Notes" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="JS 简介前言这篇文章根据《JavaScript高级程序设计》第一章的内容编写，是对其内容的一个小小的提炼，也算是我自己学习的一点总结吧。 记得刚开始捧读《JavaScript高级程序设计》时，短短的第一章9页的内容已经让我心内崩溃（后来是从第二章开始往后面读的）。现在终于对JS这门语言算是有了一个浅显的初步认识，我想这次“故章重读”一定也会有不同的收获。">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 简介">
+<meta property="og:url" content="http://yoursite.com/2016/09/29/JavaScript-简介/index.html">
+<meta property="og:site_name" content="Joey Yan&#39;s Notes">
+<meta property="og:description" content="JS 简介前言这篇文章根据《JavaScript高级程序设计》第一章的内容编写，是对其内容的一个小小的提炼，也算是我自己学习的一点总结吧。 记得刚开始捧读《JavaScript高级程序设计》时，短短的第一章9页的内容已经让我心内崩溃（后来是从第二章开始往后面读的）。现在终于对JS这门语言算是有了一个浅显的初步认识，我想这次“故章重读”一定也会有不同的收获。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2016-09-29T07:00:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 简介">
+<meta name="twitter:description" content="JS 简介前言这篇文章根据《JavaScript高级程序设计》第一章的内容编写，是对其内容的一个小小的提炼，也算是我自己学习的一点总结吧。 记得刚开始捧读《JavaScript高级程序设计》时，短短的第一章9页的内容已经让我心内崩溃（后来是从第二章开始往后面读的）。现在终于对JS这门语言算是有了一个浅显的初步认识，我想这次“故章重读”一定也会有不同的收获。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/29/JavaScript-简介/"/>
+
+  <title> JavaScript 简介 | Joey Yan's Notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Joey Yan's Notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">JUST DO IT.</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript 简介
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-29T10:08:33+08:00" content="2016-09-29">
+              2016-09-29
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/29/JavaScript-简介/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/29/JavaScript-简介/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="JS-简介"><a href="#JS-简介" class="headerlink" title="JS 简介"></a>JS 简介</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇文章根据《JavaScript高级程序设计》第一章的内容编写，是对其内容的一个小小的提炼，也算是我自己学习的一点总结吧。</p>
+<p>记得刚开始捧读《JavaScript高级程序设计》时，短短的第一章9页的内容已经让我心内崩溃（后来是从第二章开始往后面读的）。现在终于对JS这门语言算是有了一个浅显的初步认识，我想这次“故章重读”一定也会有不同的收获。</p>
+<a id="more"></a>
+<h2 id="历史回顾"><a href="#历史回顾" class="headerlink" title="历史回顾"></a>历史回顾</h2><h3 id="问世前"><a href="#问世前" class="headerlink" title="问世前"></a>问世前</h3><p>在JS问世前的状态是这样的：<strong>必须把表单数据发送到服务器端才能确定用户输入的信息是否有效</strong>。你要知道那时的网速仅有28.8kbit/s,为了完成简单的表单验证可能需要频繁的与服务器交换数据。你可以想象等待几十秒之后，服务器端返回的消息说密码填写错误的状况是多么的影响用户体验。所以Netscape公司决定开发一种客户端语言LiveScript，用来处理这种简单的验证。</p>
+<h3 id="JS-1-0"><a href="#JS-1-0" class="headerlink" title="JS 1.0"></a>JS 1.0</h3><p>为了赶时间，Netscape公司就和Sun公司建立了一个开发联盟，共同开发JS。为了师出有名，在Netscapte Navigator 2正式发布前夕，将其改名未JavaScript。<strong>Netscript Navigator 2 捆绑的是Javacript 1.0</strong>。</p>
+<h3 id="JS-1-1-和-JScript-1-0"><a href="#JS-1-1-和-JScript-1-0" class="headerlink" title="JS 1.1 和 JScript 1.0"></a>JS 1.1 和 JScript 1.0</h3><p>因为JS改善了用户体验，所以JS 1.0获得了巨大的成功。<strong>Netcsape随机在Netscape Navigator 3 中有发布了 JS 1.1</strong>。这个时候微软决定与Navigator展开竞争，于是在自家浏览器IE3中加入了JScript 1.0。</p>
+<p>这个JScript是个什么东西呢？很多人认为JScript 1.0 与 JS 1.1应该是一样的。但是，由于没有文档依据，加之不适当的特性模仿，JScript还是很难与JS 1.1相提并论。不妨这样理解：<strong>JScript和JS是相似的</strong>。</p>
+<p>现在有了2个不同的JavaScript版本。但是还没有标准规定JavaScript的语法和特性，这引起了业界的担心。为什么会担心呢？你想如果没有标准，那么事态继续往后发展，它们之间的差异会变得越来越大，为了在不同的浏览器上实现相同的效果，以后的网页可能需要2套JS代码。如果在出现几个JavaScript版本的话，后果不堪设想啊。于是JavaScript的标准化问题被提上了日程。</p>
+<h3 id="ECMA262"><a href="#ECMA262" class="headerlink" title="ECMA262"></a>ECMA262</h3><p>欧洲计算机制造商协会（ECMA），指定39号技术委员会去负责这件事。经过数月的努力完成了ECMA262——定义一种名为ECMAScript的新脚本语言的标准。</p>
+<p>为什么是ECMA262？其实就是一个编号。简单来说，ECMA就是一个制定标准的组织，制定各行各业的标准。在此之前已经制定了261项标准，正巧我们的JavaScript标准排在了262这个位置上，所以就是ECMA262，以后制定的其他标准也会一直延续下去。但是若只是用编号命名好像不是很方便，俩个人交流都必须基于它们知道这个编号对应的是什么，否则就会出现“鸡同鸭讲”的状况。所以还存在另一个标准名字——ECMAScript。<strong>ECMA262和ECMAScript指的是一个东西</strong>。</p>
+<h2 id="JavaScript实现"><a href="#JavaScript实现" class="headerlink" title="JavaScript实现"></a>JavaScript实现</h2><p>虽然JavaScript和ECMAScript通常被人们用来表达相同的含义，但JavaScript的含义却比ECMA-262中规定的要多得多。一个完整的JavaScript实现应该由下列3个不同部分组成：</p>
+<ul>
+<li>ECMAScript，提供核心语言功能</li>
+<li>文档对象模型（DOM），提供访问和操作网页内容的方法和接口</li>
+<li>浏览器对象模型（BOM），提供与浏览器交互的方法和接口</li>
+</ul>
+<h3 id="ECMAScript"><a href="#ECMAScript" class="headerlink" title="ECMAScript"></a>ECMAScript</h3><p>由ECMA262定义的ECMAScript与Web浏览器没有依赖关系。ECMA262定义的只是这门语言（可能是JavaScript,也可能是JScript）的基础，而在此基础之上可以构建更完善的脚本语言。也就是说，在ECMAScript的基础之上建立起来的脚本语言具有部分相似性。</p>
+<p>我们常见的Web浏览器只是ECMAScript实现可能的宿主环境之一。其他宿主环境包括Node和Adobe Flash。</p>
+<p>宿主环境不仅提供基本的ECMAScript实现，同时也提供该语言的扩展，以便语言和环境之间对接交互。（这句话不是很好解释）</p>
+<p>ECMAScript都规定了些什么内容？大致说来，它规定了这门语言的下列组成部分：</p>
+<ul>
+<li>语法</li>
+<li>类型</li>
+<li>语句</li>
+<li>关键字</li>
+<li>保留字</li>
+<li>操作符</li>
+<li>对象</li>
+</ul>
+<h4 id="ECMAScript版本"><a href="#ECMAScript版本" class="headerlink" title="ECMAScript版本"></a>ECMAScript版本</h4><p>至今为止由7个ECMA262版本发表。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>发表日期</th>
+<th>与前版本的差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1997年6月</td>
+<td>首版</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1998年6月</td>
+<td>格式修正，以使得其形式与ISO/IEC16262国际标准一致</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1999年12月</td>
+<td>强大的正则表达式，更好的词法作用域链处理，新的控制指令，异常处理，错误定义更加明确，数据输出的格式化及其它改变</td>
+</tr>
+<tr>
+<td>4</td>
+<td>放弃</td>
+<td>由于关于语言的复杂性出现分歧,第4版本被放弃,其中的部分成为了第5版本及Harmony的基础。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2009年12月</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>2015年6月</td>
+<td>多个新的概念和语言特性。ECMAScript Harmony将会以“ECMAScript 6”发布。</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2016年6月</td>
+<td>多个新的概念和语言特性</td>
+</tr>
+</tbody>
+</table>
+<h4 id="ECMAScript兼容"><a href="#ECMAScript兼容" class="headerlink" title="ECMAScript兼容"></a>ECMAScript兼容</h4><p>ECMA262给出了ECMAscirpt兼容的定义。要想成为ECMAScript的实现，则该实现必须做到：</p>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> 支持ECMA262所描述的所有“变量、值、对象、属性、函数以及程序句法和语义”。</li>
+<li style="list-style: none"><input type="checkbox" checked> 支持Unicode字符标准。</li>
+<li style="list-style: none"><input type="checkbox" checked> 添加ECMA262没有描述的“更多类型、值、对象、属性和函数”。ECMA262所说的这些新增特性，主要是指该标准中没有规定的新对象和对象的新属性。</li>
+<li style="list-style: none"><input type="checkbox" checked> 支持ECMA262没有定义的“程序和正则表达式语法”。</li>
+</ul>
+<h4 id="浏览器对ECMAScript的实现"><a href="#浏览器对ECMAScript的实现" class="headerlink" title="浏览器对ECMAScript的实现"></a>浏览器对ECMAScript的实现</h4><blockquote>
+<p>1996年</p>
+</blockquote>
+<p>Netscape Navigator 3 绑定发布了JavaScript 1.1。随后，也将其作为对新标准的建议被提交到EAMC。</p>
+<p>IE3 绑定发布了 JScript 1.0。</p>
+<blockquote>
+<p>1997年</p>
+</blockquote>
+<p>内置JavaScript 1.2 的Netscape Navigator 4发布。这年年底ECMA262第1版诞生。结果，虽然ECMAScript是基于JavaScript1.1制定的，但JavaScript 1.2与ECMAScript第1版并不兼容（也就是没有完全满足我们上面提到的4条）。同样内置 JScript 3.0的IE4也没有与ECMAScript兼容。</p>
+<blockquote>
+<p>？年</p>
+</blockquote>
+<p>Netscape 决定更新其JavaScript实现，<strong>在Netscape Navigator 4.06中发布了 JavaScipt1.3，从而做到了与ECMAScript第一版完全兼容</strong>。</p>
+<blockquote>
+<p>2008年</p>
+</blockquote>
+<p>五大主流Web浏览器全部做到了与ECMA262兼容。IE8是第一个着手实现ECMA262第5版的浏览器，并在IE9中提供了完整的支持。</p>
+<h3 id="文档对象模型（DOM）"><a href="#文档对象模型（DOM）" class="headerlink" title="文档对象模型（DOM）"></a>文档对象模型（DOM）</h3><p>什么是DOM？简单的说，DOM就是一套对文档内容进行抽象和概念化的方法。</p>
+<p>DOM将整个页面映射未一个多层节点结构。通过DOM创建的这个表示文档的树形图，开发人员获得了控制页面内容和结构的主动权。借助DOM提供的API，开发人员可以轻松自如地删除、添加、替换或修改任何节点。</p>
+<h4 id="为什么要使用DOM"><a href="#为什么要使用DOM" class="headerlink" title="为什么要使用DOM"></a>为什么要使用DOM</h4><p>JavaScript的早期版本便提供了一种初级的DOM——DOM level 0，通常用途是翻转图片和验证表单数据。</p>
+<p>不幸的是，NN4和IE4浏览器使用的是2种不兼容的DOM，所以过去那个只编写一个HTML页面就能够在任何浏览器种运行的时代结束了。到底怎么办呢？处理手段还是同处理JS和JScript一样，<strong>制定DOM标准</strong>。只是这次负责制定标准的不是ECMA了，是W3C。</p>
+<h4 id="DOM级别"><a href="#DOM级别" class="headerlink" title="DOM级别"></a>DOM级别</h4><ul>
+<li style="list-style: none"><input type="checkbox" checked> DOM level 0</li>
+<li style="list-style: none"><input type="checkbox" checked> DOM level 1</li>
+<li style="list-style: none"><input type="checkbox" checked> DOM level 2</li>
+<li style="list-style: none"><input type="checkbox" checked> DOM level 3</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JS/" rel="tag">#JS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/22/设备像素，CSS像素，设备独立像素，设备像素比/" rel="next" title="设备像素，CSS像素，设备独立像素，设备像素比">
+                <i class="fa fa-chevron-left"></i> 设备像素，CSS像素，设备独立像素，设备像素比
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/15/JS中的执行环境/" rel="prev" title="JS中的执行环境">
+                JS中的执行环境 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/29/JavaScript-简介/"
+           data-title="JavaScript 简介" data-url="http://yoursite.com/2016/09/29/JavaScript-简介/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Joey Yan" />
+          <p class="site-author-name" itemprop="name">Joey Yan</p>
+          <p class="site-description motion-element" itemprop="description">不忘初心 方得始终</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Joey-yan" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/Jayan" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-graduation-cap"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/yj2586888027" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JS-简介"><span class="nav-number">1.</span> <span class="nav-text">JS 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#历史回顾"><span class="nav-number">1.2.</span> <span class="nav-text">历史回顾</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问世前"><span class="nav-number">1.2.1.</span> <span class="nav-text">问世前</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS-1-0"><span class="nav-number">1.2.2.</span> <span class="nav-text">JS 1.0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS-1-1-和-JScript-1-0"><span class="nav-number">1.2.3.</span> <span class="nav-text">JS 1.1 和 JScript 1.0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ECMA262"><span class="nav-number">1.2.4.</span> <span class="nav-text">ECMA262</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript实现"><span class="nav-number">1.3.</span> <span class="nav-text">JavaScript实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ECMAScript"><span class="nav-number">1.3.1.</span> <span class="nav-text">ECMAScript</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ECMAScript版本"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">ECMAScript版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ECMAScript兼容"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">ECMAScript兼容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器对ECMAScript的实现"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">浏览器对ECMAScript的实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文档对象模型（DOM）"><span class="nav-number">1.3.2.</span> <span class="nav-text">文档对象模型（DOM）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么要使用DOM"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">为什么要使用DOM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DOM级别"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">DOM级别</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" style="display: inline-block">
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Joey Yan</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"Joey-yan"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
